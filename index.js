@@ -33,6 +33,7 @@ const shoppingListInDB = ref(database , "Shopping-List")
 
 const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
+const shoppingListEl = document.getElementById("confirmation-text")
 
 addButtonEl.addEventListener("click",function(){
     let inputValue = inputFieldEl.value
@@ -40,6 +41,18 @@ addButtonEl.addEventListener("click",function(){
     push(shoppingListInDB,inputValue)
 
     console.log(`${inputValue}`);
-    
+
+    clearinp()
+
+    shoplist(inputValue)
+
 })
+
+function clearinp(){ 
+    inputFieldEl.value=""
+}
+
+function shoplist(itemValue){
+    shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+}
 
